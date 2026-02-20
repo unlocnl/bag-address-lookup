@@ -1,0 +1,14 @@
+{
+    "name": "unloc/bag-address-lookup",
+    "description": "Auto-fill Dutch addresses in WooCommerce Block Checkout using Kadaster BAG API",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "BagAddressLookup\\": "src/"
+        }
+    }
+}
