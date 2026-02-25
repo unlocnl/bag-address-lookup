@@ -1,0 +1,80 @@
+# Dutch translations for BAG Address Lookup for WooCommerce.
+# Copyright (C) 2026 Unloc
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: BAG Address Lookup 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-25 00:00+0000\n"
+"PO-Revision-Date: 2026-02-25 00:00+0000\n"
+"Last-Translator: Unloc <info@unloc.dev>\n"
+"Language-Team: Dutch\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: bag-address-lookup.php:34
+msgid "BAG Address Lookup requires WooCommerce to be installed and active."
+msgstr "BAG Adres Opzoeken vereist dat WooCommerce is geïnstalleerd en actief."
+
+#: src/Plugin.php:31
+#, php-format
+msgid "BAG Address Lookup: Please enter your BAG API key in %1$sSettings%2$s."
+msgstr "BAG Adres Opzoeken: Voer je BAG API-sleutel in bij %1$sInstellingen%2$s."
+
+#: src/Admin/Settings.php:23
+#: src/Admin/Settings.php:36
+msgid "BAG Address Lookup"
+msgstr "BAG Adres Opzoeken"
+
+#: src/Admin/Settings.php:38
+msgid "Auto-fill street and city using the Kadaster BAG API."
+msgstr "Vul straat en plaats automatisch in via de Kadaster BAG API."
+
+#: src/Admin/Settings.php:42
+msgid "Enable"
+msgstr "Inschakelen"
+
+#: src/Admin/Settings.php:44
+msgid "Enable postcode lookup on checkout"
+msgstr "Postcode opzoeken bij afrekenen inschakelen"
+
+#: src/Admin/Settings.php:49
+msgid "BAG API Key"
+msgstr "BAG API-sleutel"
+
+#: src/Admin/Settings.php:53
+#, php-format
+msgid "Get your free API key from %s"
+msgstr "Vraag je gratis API-sleutel aan bij %s"
+
+#: src/Api/BagClient.php:23
+msgid "BAG API key not configured."
+msgstr "BAG API-sleutel niet geconfigureerd."
+
+#: src/Api/BagClient.php:56
+#, php-format
+msgid "BAG API returned status %d."
+msgstr "BAG API gaf status %d terug."
+
+#: src/Api/BagClient.php:64
+msgid "Address not found."
+msgstr "Adres niet gevonden."
+
+#: src/Checkout/Fields.php:28
+msgid "House number"
+msgstr "Huisnummer"
+
+#: src/Checkout/BlockIntegration.php:54
+msgid "Street and city are filled automatically."
+msgstr "Straat en plaats worden automatisch ingevuld."
+
+#: src/Checkout/BlockIntegration.php:55
+msgid "Looking up address…"
+msgstr "Adres opzoeken…"
+
+#: src/Checkout/BlockIntegration.php:56
+msgid "Address not found. Please enter manually."
+msgstr "Adres niet gevonden. Vul het handmatig in."
