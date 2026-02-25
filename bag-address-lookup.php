@@ -27,6 +27,13 @@ define('BAG_ADDRESS_LOOKUP_URL', plugin_dir_url(__FILE__));
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+add_action('before_woocommerce_init', static function (): void {
+    if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__);
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('cart_checkout_blocks', __FILE__);
+    }
+});
+
 add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
