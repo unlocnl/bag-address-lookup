@@ -150,7 +150,7 @@
         editBtn.appendChild(document.createTextNode(' ' + settings.i18n.edit));
         editBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            enterEditMode(type);
+            enterEditMode(type, true);
         });
         card.appendChild(editBtn);
 
@@ -185,8 +185,8 @@
         if (w2) w2.style.display = '';
     }
 
-    function enterEditMode(type) {
-        editMode[type] = true;
+    function enterEditMode(type, permanent) {
+        editMode[type] = permanent ? 'permanent' : 'fallback';
         hideStatus(type);
         showAddressFields(type);
     }
@@ -222,6 +222,10 @@
             return;
         }
         lastLookup[type] = lookupKey;
+
+        if (editMode[type] === 'fallback') {
+            editMode[type] = false;
+        }
 
         if (activeRequests[type]) {
             activeRequests[type].abort();
