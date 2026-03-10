@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Dutch Address Lookup for WooCommerce (BAG API)
+ * Plugin Name: BAG Address Lookup
  * Plugin URI: https://github.com/unlocnl/bag-address-lookup
  * Description: Auto-fills street and city in WooCommerce Block Checkout based on Dutch postcode and house number using the free Kadaster BAG API.
  * Version: 1.0.0
