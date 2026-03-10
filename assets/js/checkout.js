@@ -75,14 +75,14 @@
 
         const form = postcodeWrapper.parentElement;
 
-        const address1Input = document.getElementById(type + '-address_1');
-        const address1Wrapper = fieldWrapper(address1Input);
-        if (!address1Wrapper) return;
+        // Insert before the status element if it exists, otherwise before address_1
+        const refNode = statusEls[type] || fieldWrapper(document.getElementById(type + '-address_1'));
+        if (!refNode) return;
 
         if (postcodeWrapper.nextElementSibling !== houseWrapper ||
-            houseWrapper.nextElementSibling !== address1Wrapper) {
-            form.insertBefore(postcodeWrapper, address1Wrapper);
-            form.insertBefore(houseWrapper, address1Wrapper);
+            houseWrapper.nextElementSibling !== refNode) {
+            form.insertBefore(postcodeWrapper, refNode);
+            form.insertBefore(houseWrapper, refNode);
         }
     }
 
@@ -100,11 +100,11 @@
     function getOrCreateStatus(type) {
         if (statusEls[type]) return statusEls[type];
         const address1 = document.getElementById(type + '-address_1');
-        const wrapper = fieldWrapper(address1);
-        if (!wrapper) return null;
+        const address1Wrapper = fieldWrapper(address1);
+        if (!address1Wrapper) return null;
         const el = document.createElement('div');
         el.className = 'bal-status bal-status--hidden';
-        wrapper.parentElement.insertBefore(el, wrapper);
+        address1Wrapper.parentElement.insertBefore(el, address1Wrapper);
         statusEls[type] = el;
         return el;
     }
