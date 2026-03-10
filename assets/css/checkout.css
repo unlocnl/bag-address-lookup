@@ -1,0 +1,19 @@
+.bal-status {
+    width: 100%;
+}
+
+.bal-status--hidden {
+    display: none;
+}
+
+.bal-status .wc-block-components-address-card__edit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.bal-status .wc-block-components-address-card__edit svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}

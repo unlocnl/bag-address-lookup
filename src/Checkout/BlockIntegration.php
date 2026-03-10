@@ -22,10 +22,17 @@ final class BlockIntegration implements IntegrationInterface
             return;
         }
 
+        wp_register_style(
+            'bag-address-lookup-checkout',
+            BAG_ADDRESS_LOOKUP_URL . 'assets/css/checkout.css',
+            [],
+            BAG_ADDRESS_LOOKUP_VERSION
+        );
+
         wp_register_script(
             'bag-address-lookup-checkout',
             BAG_ADDRESS_LOOKUP_URL . 'assets/js/checkout.js',
-            [],
+            ['wc-settings', 'wp-data'],
             BAG_ADDRESS_LOOKUP_VERSION,
             true
         );
@@ -36,6 +43,8 @@ final class BlockIntegration implements IntegrationInterface
         if (! Settings::isEnabled()) {
             return [];
         }
+
+        wp_enqueue_style('bag-address-lookup-checkout');
 
         return ['bag-address-lookup-checkout'];
     }
@@ -54,6 +63,8 @@ final class BlockIntegration implements IntegrationInterface
                 'auto_filled' => __('Street and city are filled automatically.', 'bag-address-lookup'),
                 'looking_up' => __('Looking up address…', 'bag-address-lookup'),
                 'not_found' => __('Address not found. Please enter manually.', 'bag-address-lookup'),
+                'address' => __('Address', 'bag-address-lookup'),
+                'edit' => __('Edit', 'bag-address-lookup'),
             ],
         ];
     }

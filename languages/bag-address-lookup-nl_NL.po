@@ -78,3 +78,11 @@ msgstr "Adres opzoeken…"
 #: src/Checkout/BlockIntegration.php:56
 msgid "Address not found. Please enter manually."
 msgstr "Adres niet gevonden. Vul het handmatig in."
+
+#: src/Checkout/BlockIntegration.php:57
+msgid "Address"
+msgstr "Adres"
+
+#: src/Checkout/BlockIntegration.php:58
+msgid "Edit"
+msgstr "Wijzig"
