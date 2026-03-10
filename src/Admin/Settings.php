@@ -20,7 +20,7 @@ final class Settings
 
     public static function addSection(array $sections): array
     {
-        $sections[self::SECTION_ID] = __('BAG Address Lookup', 'bag-address-lookup');
+        $sections[self::SECTION_ID] = __('Dutch Address Lookup (BAG API)', 'bag-address-lookup');
 
         return $sections;
     }
@@ -33,7 +33,7 @@ final class Settings
 
         return [
             [
-                'title' => __('BAG Address Lookup', 'bag-address-lookup'),
+                'title' => __('Dutch Address Lookup (BAG API)', 'bag-address-lookup'),
                 'type' => 'title',
                 'desc' => __('Auto-fill street and city using the Kadaster BAG API.', 'bag-address-lookup'),
                 'id' => 'bag_address_lookup_options',
@@ -41,13 +41,13 @@ final class Settings
             [
                 'title' => __('Enable', 'bag-address-lookup'),
                 'type' => 'checkbox',
-                'desc' => __('Enable postcode lookup on checkout', 'bag-address-lookup'),
+                'desc' => __('Auto-fill Dutch addresses at checkout', 'bag-address-lookup'),
                 'id' => self::OPTION_ENABLED,
                 'default' => 'no',
             ],
             [
                 'title' => __('BAG API Key', 'bag-address-lookup'),
-                'type' => 'text',
+                'type' => 'password',
                 'desc' => sprintf(
                     /* translators: %s: link to Kadaster website */
                     __('Get your free API key from %s', 'bag-address-lookup'),

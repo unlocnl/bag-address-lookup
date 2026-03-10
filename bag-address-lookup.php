@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: BAG Address Lookup for WooCommerce
+ * Plugin Name: Dutch Address Lookup for WooCommerce (BAG API)
  * Plugin URI: https://github.com/unlocnl/bag-address-lookup
- * Description: Auto-fills street and city in WooCommerce Block Checkout based on Dutch postcode and house number using the Kadaster BAG API.
+ * Description: Auto-fills street and city in WooCommerce Block Checkout based on Dutch postcode and house number using the free Kadaster BAG API.
  * Version: 1.0.0
  * Author: Unloc
- * Author URI: https://unloc.dev
+ * Author URI: https://unloc.nl
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: bag-address-lookup
@@ -14,6 +14,7 @@
  * Requires PHP: 8.1
  * WC requires at least: 8.6
  * WC tested up to: 10.4
+ * Requires Plugins: woocommerce
  */
 
 declare(strict_types=1);
@@ -35,14 +36,5 @@ add_action('before_woocommerce_init', static function (): void {
 });
 
 add_action('plugins_loaded', static function (): void {
-    if (! class_exists('WooCommerce')) {
-        add_action('admin_notices', static function (): void {
-            echo '<div class="notice notice-error"><p>';
-            echo esc_html__('BAG Address Lookup requires WooCommerce to be installed and active.', 'bag-address-lookup');
-            echo '</p></div>';
-        });
-        return;
-    }
-
     \BagAddressLookup\Plugin::init();
 });

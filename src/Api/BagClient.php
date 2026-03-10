@@ -24,7 +24,7 @@ final class BagClient
         }
 
         $normalizedPostcode = strtoupper(str_replace(' ', '', $postcode));
-        $cacheKey = 'bal_' . $normalizedPostcode . '_' . $houseNumber;
+        $cacheKey = 'bag_address_lookup_' . $normalizedPostcode . '_' . $houseNumber;
         $cached = get_transient($cacheKey);
         if ($cached !== false) {
             return $cached;

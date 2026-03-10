@@ -44,5 +44,20 @@ final class Plugin
                 echo '</p></div>';
             });
         }
+
+        add_action('admin_init', static function (): void {
+            if (! function_exists('wp_add_privacy_policy_content')) {
+                return;
+            }
+
+            wp_add_privacy_policy_content(
+                __('Dutch Address Lookup (BAG API)', 'bag-address-lookup'),
+                wp_kses_post(sprintf(
+                    /* translators: %s: link to Kadaster privacy policy */
+                    __('When a customer enters a Dutch postcode and house number during checkout, this data is sent to the Kadaster BAG API to retrieve the street name and city. No other personal data is transmitted. Results are cached on your server for 24 hours. See the %s.', 'bag-address-lookup'),
+                    '<a href="https://www.kadaster.nl/privacy" target="_blank">' . __('Kadaster privacy policy', 'bag-address-lookup') . '</a>'
+                ))
+            );
+        });
     }
 }

@@ -275,8 +275,11 @@
                 hideAddressFields(type);
             }
         })
-        .catch(() => {
+        .catch((err) => {
             activeRequests[type] = null;
+            if (err.name !== 'AbortError') {
+                enterEditMode(type);
+            }
         });
     }
 

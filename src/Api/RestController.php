@@ -19,9 +19,9 @@ final class RestController
             register_rest_route(self::NAMESPACE, '/lookup', [
                 'methods' => 'POST',
                 'callback' => [self::class, 'lookup'],
-                'permission_callback' => static function (): bool {
+                'permission_callback' => static function (WP_REST_Request $request): bool {
                     return wp_verify_nonce(
-                        sanitize_text_field(wp_unslash($_SERVER['HTTP_X_WP_NONCE'] ?? '')),
+                        sanitize_text_field($request->get_header('X-WP-Nonce') ?? ''),
                         'wp_rest'
                     ) !== false;
                 },

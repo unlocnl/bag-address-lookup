@@ -1,12 +1,12 @@
-# Dutch translations for BAG Address Lookup for WooCommerce.
+# Dutch translations for Dutch Address Lookup for WooCommerce (BAG API).
 # Copyright (C) 2026 Unloc
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: BAG Address Lookup 1.0.0\n"
+"Project-Id-Version: Dutch Address Lookup for WooCommerce (BAG API) 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-25 00:00+0000\n"
-"PO-Revision-Date: 2026-02-25 00:00+0000\n"
+"PO-Revision-Date: 2026-03-10 00:00+0000\n"
 "Last-Translator: Unloc <info@unloc.dev>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -15,19 +15,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: bag-address-lookup.php:34
-msgid "BAG Address Lookup requires WooCommerce to be installed and active."
-msgstr "BAG Adres Opzoeken vereist dat WooCommerce is geïnstalleerd en actief."
 
-#: src/Plugin.php:31
+#: src/Plugin.php:40
 #, php-format
 msgid "BAG Address Lookup: Please enter your BAG API key in %1$sSettings%2$s."
-msgstr "BAG Adres Opzoeken: Voer je BAG API-sleutel in bij %1$sInstellingen%2$s."
+msgstr "BAG Address Lookup: voer je BAG API-sleutel in bij %1$sInstellingen%2$s."
 
 #: src/Admin/Settings.php:23
 #: src/Admin/Settings.php:36
-msgid "BAG Address Lookup"
-msgstr "BAG Adres Opzoeken"
+#: src/Plugin.php:54
+msgid "Dutch Address Lookup (BAG API)"
+msgstr "Dutch Address Lookup (BAG API)"
 
 #: src/Admin/Settings.php:38
 msgid "Auto-fill street and city using the Kadaster BAG API."
@@ -38,8 +36,8 @@ msgid "Enable"
 msgstr "Inschakelen"
 
 #: src/Admin/Settings.php:44
-msgid "Enable postcode lookup on checkout"
-msgstr "Postcode opzoeken bij afrekenen inschakelen"
+msgid "Auto-fill Dutch addresses at checkout"
+msgstr "Vul automatisch Nederlandse adressen in bij het afrekenen"
 
 #: src/Admin/Settings.php:49
 msgid "BAG API Key"
@@ -87,14 +85,23 @@ msgstr "Adres"
 msgid "Edit"
 msgstr "Wijzig"
 
-#: src/Plugin.php
+#: src/Plugin.php:29
 msgid "Settings"
 msgstr "Instellingen"
 
+#: src/Plugin.php:57
+#, php-format
+msgid "When a customer enters a Dutch postcode and house number during checkout, this data is sent to the Kadaster BAG API to retrieve the street name and city. No other personal data is transmitted. Results are cached on your server for 24 hours. See the %s."
+msgstr "Wanneer een klant een postcode en huisnummer invoert bij het afrekenen, worden deze gegevens naar de Kadaster BAG API gestuurd om de straatnaam en woonplaats op te halen. Er worden geen andere persoonsgegevens verzonden. Resultaten worden 24 uur op je server gecacht. Zie het %s."
+
+#: src/Plugin.php:58
+msgid "Kadaster privacy policy"
+msgstr "Kadaster privacybeleid"
+
 #. Plugin Name of the plugin
-msgid "BAG Address Lookup for WooCommerce"
-msgstr "BAG Adres Opzoeken voor WooCommerce"
+msgid "Dutch Address Lookup for WooCommerce (BAG API)"
+msgstr "Dutch Address Lookup for WooCommerce (BAG API)"
 
 #. Description of the plugin
-msgid "Auto-fills street and city in WooCommerce Block Checkout based on Dutch postcode and house number using the Kadaster BAG API."
-msgstr "Vult automatisch straat en plaats in bij de WooCommerce Block Checkout op basis van postcode en huisnummer via de Kadaster BAG API."
+msgid "Auto-fills street and city in WooCommerce Block Checkout based on Dutch postcode and house number using the free Kadaster BAG API."
+msgstr "Vult automatisch straat en plaats in bij de WooCommerce Block Checkout op basis van postcode en huisnummer via de gratis Kadaster BAG API."
