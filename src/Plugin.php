@@ -22,6 +22,15 @@ final class Plugin
         FieldOrder::register();
         BlockIntegration::register();
 
+        $basename = plugin_basename(BAG_ADDRESS_LOOKUP_FILE);
+
+        add_filter('plugin_action_links_' . $basename, static function (array $links): array {
+            $url = admin_url('admin.php?page=wc-settings&tab=advanced&section=bag_address_lookup');
+            array_unshift($links, '<a href="' . esc_url($url) . '">' . esc_html__('Settings', 'bag-address-lookup') . '</a>');
+
+            return $links;
+        });
+
         if (! Settings::apiKey()) {
             add_action('admin_notices', static function (): void {
                 $url = admin_url('admin.php?page=wc-settings&tab=advanced&section=bag_address_lookup');

@@ -43,7 +43,7 @@ final class Settings
                 'type' => 'checkbox',
                 'desc' => __('Enable postcode lookup on checkout', 'bag-address-lookup'),
                 'id' => self::OPTION_ENABLED,
-                'default' => 'yes',
+                'default' => 'no',
             ],
             [
                 'title' => __('BAG API Key', 'bag-address-lookup'),
@@ -71,6 +71,6 @@ final class Settings
 
     public static function isEnabled(): bool
     {
-        return self::apiKey() !== '' && get_option(self::OPTION_ENABLED, 'yes') === 'yes';
+        return self::apiKey() !== '' && get_option(self::OPTION_ENABLED, 'no') === 'yes';
     }
 }

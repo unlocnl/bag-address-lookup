@@ -86,3 +86,15 @@ msgstr "Adres"
 #: src/Checkout/BlockIntegration.php:58
 msgid "Edit"
 msgstr "Wijzig"
+
+#: src/Plugin.php
+msgid "Settings"
+msgstr "Instellingen"
+
+#. Plugin Name of the plugin
+msgid "BAG Address Lookup for WooCommerce"
+msgstr "BAG Adres Opzoeken voor WooCommerce"
+
+#. Description of the plugin
+msgid "Auto-fills street and city in WooCommerce Block Checkout based on Dutch postcode and house number using the Kadaster BAG API."
+msgstr "Vult automatisch straat en plaats in bij de WooCommerce Block Checkout op basis van postcode en huisnummer via de Kadaster BAG API."
