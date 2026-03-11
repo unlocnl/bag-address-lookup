@@ -26,14 +26,14 @@ final class BlockIntegration implements IntegrationInterface
             'bag-address-lookup-checkout',
             BAG_ADDRESS_LOOKUP_URL . 'assets/css/checkout.css',
             [],
-            BAG_ADDRESS_LOOKUP_VERSION
+            (string) filemtime(BAG_ADDRESS_LOOKUP_DIR . 'assets/css/checkout.css')
         );
 
         wp_register_script(
             'bag-address-lookup-checkout',
             BAG_ADDRESS_LOOKUP_URL . 'assets/js/checkout.js',
             ['wc-settings', 'wp-data'],
-            BAG_ADDRESS_LOOKUP_VERSION,
+            (string) filemtime(BAG_ADDRESS_LOOKUP_DIR . 'assets/js/checkout.js'),
             true
         );
     }
