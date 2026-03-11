@@ -14,14 +14,14 @@ Auto-fills street and city in WooCommerce Block Checkout for Dutch addresses usi
 
 == Description ==
 
-Automatically looks up Dutch addresses based on postcode (e.g. 1234AB) and house number during WooCommerce checkout. Uses the official Kadaster BAG API (Basisregistratie Adressen en Gebouwen) — **completely free** (50,000 requests/day). Reduces input errors and speeds up the checkout process for customers in the Netherlands.
+Automatically looks up Dutch addresses based on postcode and house number during WooCommerce checkout. Uses the official Kadaster BAG API (Basisregistratie Adressen en Gebouwen) — **completely free** (50,000 requests/day). Reduces input errors and speeds up the checkout process for customers in the Netherlands.
 
 **Features:**
 
 * Uses the free Kadaster BAG API — no subscription, no usage fees (50k requests/day)
 * Auto-fills street name and city based on postcode + house number
 * Works with WooCommerce Block Checkout
-* Only activates for Netherlands addresses
+* Only activates for Dutch addresses (The Netherlands selected in the country select)
 * API key stays server-side (proxied through your site)
 * Non-blocking: manual entry still possible if address not found
 
@@ -51,9 +51,9 @@ No. This plugin only works with the WooCommerce Block Checkout (the default sinc
 
 The street and city fields are shown and the customer can fill them in manually. Checkout is never blocked.
 
-= Does this plugin work for Belgian or German addresses? =
+= Does this plugin work for other countries than The Netherlands? =
 
-No. The BAG is a Dutch government registry. The plugin only activates when the country is set to Netherlands.
+No. The BAG is a Dutch government registry. The plugin only activates when the country is set to The Netherlands.
 
 == Screenshots ==
 
