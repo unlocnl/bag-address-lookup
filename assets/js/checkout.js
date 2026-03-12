@@ -75,8 +75,9 @@
 
         const form = postcodeWrapper.parentElement;
 
-        // Insert before the status element if it exists, otherwise before address_1
-        const refNode = statusEls[type] || fieldWrapper(document.getElementById(type + '-address_1'));
+        // Insert before the status element if it exists and is still in DOM, otherwise before address_1
+        const statusEl = statusEls[type] && statusEls[type].isConnected ? statusEls[type] : null;
+        const refNode = statusEl || fieldWrapper(document.getElementById(type + '-address_1'));
         if (!refNode) return;
 
         if (postcodeWrapper.nextElementSibling !== houseWrapper ||
@@ -98,7 +99,8 @@
     }
 
     function getOrCreateStatus(type) {
-        if (statusEls[type]) return statusEls[type];
+        if (statusEls[type] && statusEls[type].isConnected) return statusEls[type];
+        statusEls[type] = null;
         const address1 = document.getElementById(type + '-address_1');
         const address1Wrapper = fieldWrapper(address1);
         if (!address1Wrapper) return null;
@@ -267,6 +269,14 @@
                 dispatch().setBillingAddress({ city: data.city });
             } else {
                 dispatch().setShippingAddress({ city: data.city });
+
+                const billing = getStore().getCustomerData()?.billingAddress;
+                if (billing && billing.country === 'NL' && !billing.address_1) {
+                    dispatch().setBillingAddress({
+                        address_1: data.street + ' ' + parsed.full,
+                        city: data.city,
+                    });
+                }
             }
 
             if (!editMode[type]) {
