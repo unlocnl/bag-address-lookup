@@ -65,6 +65,7 @@ final class BlockIntegration implements IntegrationInterface
                 'not_found' => __('Address not found. Please enter manually.', 'bag-address-lookup'),
                 'address' => __('Address', 'bag-address-lookup'),
                 'edit' => __('Edit', 'bag-address-lookup'),
+                'missing_house_number' => __('Please include a house number in your address.', 'bag-address-lookup'),
             ],
         ];
     }

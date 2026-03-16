@@ -24,6 +24,8 @@ Automatically looks up Dutch addresses based on postcode and house number during
 * Only activates for Dutch addresses (The Netherlands selected in the country select)
 * API key stays server-side (proxied through your site)
 * Non-blocking: manual entry still possible if address not found
+* Inline validation: warns when a Dutch address is missing a house number
+* House number field is hidden from order details, emails, and admin — it's already part of the address
 
 **Requirements:**
 

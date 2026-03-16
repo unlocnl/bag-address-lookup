@@ -33,7 +33,6 @@ final class BagClient
         $url = self::BASE_URL . '/adressen?' . http_build_query([
             'postcode' => $normalizedPostcode,
             'huisnummer' => $houseNumber,
-            'exacteMatch' => 'true',
         ]);
 
         $response = wp_remote_get($url, [

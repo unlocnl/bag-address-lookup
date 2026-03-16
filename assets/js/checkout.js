@@ -19,6 +19,10 @@
         return wp.data.dispatch('wc/store/cart');
     }
 
+    function validation() {
+        return wp.data.dispatch('wc/store/validation');
+    }
+
     function getStore() {
         return wp.data.select('wc/store/cart');
     }
@@ -374,6 +378,42 @@
         });
     }
 
+    function address1ErrorId(type) {
+        return type + '_address_1';
+    }
+
+    function validateAddress1(type) {
+        const customer = getStore().getCustomerData();
+        if (!customer) return;
+        const address = type === 'billing' ? customer.billingAddress : customer.shippingAddress;
+        if (!address || address.country !== 'NL') return;
+
+        const input = document.getElementById(type + '-address_1');
+        if (!input) return;
+
+        var errorId = address1ErrorId(type);
+        if (/\d/.test(input.value)) {
+            validation().clearValidationError(errorId);
+        } else {
+            validation().setValidationErrors({
+                [errorId]: {
+                    message: settings.i18n.missing_house_number || 'Please include a house number in your address.',
+                    hidden: false,
+                },
+            });
+        }
+    }
+
+    function bindAddress1Validation(type) {
+        var input = document.getElementById(type + '-address_1');
+        if (!input || input._balAddress1Bound) return;
+        input._balAddress1Bound = true;
+
+        input.addEventListener('blur', function () {
+            validateAddress1(type);
+        });
+    }
+
     function setup(type) {
         const houseInput = findHouseNumberInput(type);
         if (!houseInput || houseInput._balBound) return;
@@ -383,6 +423,7 @@
 
         reorderFields(type);
         bindPostcodeTrim(type);
+        bindAddress1Validation(type);
         toggleHouseNumber(type, prevCountry[type]);
 
         const customer = getStore().getCustomerData();

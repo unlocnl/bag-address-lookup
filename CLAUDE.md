@@ -14,15 +14,17 @@ Dutch Address Lookup for WooCommerce (BAG API). Auto-fills street and city at Bl
 |-|-|
 | `Plugin` | Bootstraps all components, settings link, API key notice, privacy policy |
 | `Admin\Settings` | WooCommerce settings section under Advanced tab. Options: `bag_address_lookup_enabled`, `bag_address_lookup_api_key` |
-| `Api\BagClient` | Server-side proxy to `api.bag.kadaster.nl`. Caches results as transients (`bag_address_lookup_{postcode}_{number}`, 24h TTL) |
+| `Api\BagClient` | Server-side proxy to `api.bag.kadaster.nl`. Queries without `exacteMatch` so house number additions (letters, suffixes) don't break lookups. Caches results as transients (`bag_address_lookup_{postcode}_{number}`, 24h TTL) |
 | `Api\RestController` | REST endpoint `POST bag-address-lookup/v1/lookup`. Nonce-protected to prevent external API key abuse |
-| `Checkout\Fields` | Registers the house number additional checkout field (visible/required only for NL) |
+| `Checkout\Fields` | Registers the house number additional checkout field (visible/required only for NL). Hidden from admin order details, order confirmation, and emails via `show_in_order_confirmation: false` + admin field filter |
 | `Checkout\FieldOrder` | Reorders NL locale fields: postcode → address → city |
 | `Checkout\BlockIntegration` | Implements `IntegrationInterface` — enqueues JS/CSS, passes config via `get_script_data()` |
 
 ### Frontend (`assets/js/checkout.js`)
 
 Vanilla JS (no build step). Subscribes to `wc/store/cart` for country/postcode changes, debounces lookups, manages field visibility and an address summary card. Uses `MutationObserver` on `document.body` to bind to dynamically rendered checkout fields.
+
+Inline validation on `address_1` for NL: validates on blur that the field contains a digit (house number). Uses `wc/store/validation` store with key format `{type}_address_1` (underscores, not hyphens). Avoid `input` event handlers that dispatch to the validation store — React re-renders swallow keystrokes.
 
 ## Translations
 

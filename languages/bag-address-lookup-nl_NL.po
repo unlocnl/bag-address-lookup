@@ -85,6 +85,11 @@ msgstr "Adres"
 msgid "Edit"
 msgstr "Wijzig"
 
+#: src/Checkout/BlockIntegration.php:59
+#: src/Checkout/Validation.php:38
+msgid "Please include a house number in your address."
+msgstr "Vul een huisnummer in bij je adres."
+
 #: src/Plugin.php:29
 msgid "Settings"
 msgstr "Instellingen"
